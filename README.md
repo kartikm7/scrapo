@@ -1,6 +1,6 @@
 # Scrapo
 > Just a way for me to learn go
----
+
 **Scrapo** is a simple web-scraper that utilizes the http and html modules.
 The main thing that I wanted to try go was for it's concurrency mechanisms through Go Routines.
 
@@ -11,3 +11,4 @@ The main thing that I wanted to try go was for it's concurrency mechanisms throu
 ## To-do
 - [ ] Colly (Sophisticated Scraping Module)
 - [ ] Web API (Using Gin)
+- [ ] Return Markdown LLM ready content

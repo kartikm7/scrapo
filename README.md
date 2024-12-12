@@ -12,3 +12,4 @@ The main thing that I wanted to try go was for it's concurrency mechanisms throu
 - [ ] Colly (Sophisticated Scraping Module)
 - [ ] Web API (Using Gin)
 - [ ] Return Markdown LLM ready content
+- [ ] Similarity search / Fuzzy Find (idk whats fuzzy find) through the content

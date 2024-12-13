@@ -24,9 +24,9 @@ var mutex = sync.Mutex{}
 // this is mock data to test go routines
 var websites []website = []website{
 	{"LLocal", "https://www.llocal.in"},
+	{"My GitHub", "https://www.github.com/kartikm7"},
 	{"DocNext", "https://docnext.llocal.in"},
 	{"Ono", "https://ono.llocal.in"},
-	{"My GitHub", "https://www.github.com/kartikm7"},
 }
 
 var result = []string{}
@@ -40,8 +40,9 @@ func main() {
 		go func() {
 			if data, err := scraper.Scraper(val.url); err == nil {
 				// I don't quite care about the scraped data as much as I do with the order of processes
-				if _, err := parser.Parser(data); err == nil {
+				if data, err := parser.Parser(data); err == nil {
 					mutex.Lock()
+					fmt.Println(data)
 					result = append(result, val.name)
 					mutex.Unlock()
 				}
@@ -49,9 +50,9 @@ func main() {
 			// decrements the counter by 1
 			wg.Done()
 		}()
-		// it waits here till the counter hits 0!
-		wg.Wait()
 	}
+	// it waits here till the counter hits 0!
+	wg.Wait()
 	fmt.Printf("The results: %v\n", result)
 	fmt.Println("Time since execution: ", time.Since(startingTime))
 }
